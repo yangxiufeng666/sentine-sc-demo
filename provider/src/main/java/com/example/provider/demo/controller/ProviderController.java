@@ -19,11 +19,11 @@ public class ProviderController {
 
     @GetMapping("getPort")
     public String getPort(){
-        try {
-            Thread.sleep(10 * 1000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
+//        try {
+//            Thread.sleep(10 * 1000);
+//        } catch (InterruptedException e) {
+//            e.printStackTrace();
+//        }
         return port;
     }
 

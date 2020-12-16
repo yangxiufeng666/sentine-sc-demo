@@ -13,13 +13,37 @@ spring:
     gateway:
       discovery:
         locator:
-          enabled: true
           lower-case-service-id: true
+          enabled: true
       default-filters:
         - name: Hystrix
           args:
             name: fallbackcmd
             fallbackUri: forward:/fallback
+#      routes:
+#        - id: provider
+#          uri: lb://sentinel-provider
+#          predicates:
+#            - Path=/sentinel-provider/**
+#          filters:
+#            - StripPrefix=1
+#        - id: consumer
+#          uri: lb://sentinel-consumer
+#          predicates:
+#            - Path=/sentinel-consumer/**
+#          filters:
+#            - StripPrefix=1
+    sentinel:
+      scg:
+        order: -100
+        fallback:
+          mode: response
+          response-status: 455
+          response-body: 系统繁忙
+      transport:
+        dashboard: 127.0.0.1:8080
+  main:
+    allow-bean-definition-overriding: true
 hystrix:
   command:
     default:
