@@ -4,13 +4,6 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-/**
- * Created with IntelliJ IDEA.
- * Description:
- * User: Mr.Yangxiufeng
- * Date: 2019-07-25
- * Time: 14:29
- */
 @RestController
 public class ProviderController {
 

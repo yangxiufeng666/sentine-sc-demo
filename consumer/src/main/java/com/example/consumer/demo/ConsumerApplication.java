@@ -5,13 +5,6 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 import org.springframework.cloud.openfeign.EnableFeignClients;
 
-/**
- * Created with IntelliJ IDEA.
- * Description:
- * User: Mr.Yangxiufeng
- * Date: 2019-07-25
- * Time: 14:13
- */
 @SpringBootApplication
 @EnableDiscoveryClient
 @EnableFeignClients

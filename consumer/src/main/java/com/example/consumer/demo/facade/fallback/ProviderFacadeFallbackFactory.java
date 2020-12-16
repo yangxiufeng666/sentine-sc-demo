@@ -5,13 +5,6 @@ import feign.hystrix.FallbackFactory;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 
-/**
- * Created with IntelliJ IDEA.
- * Description:
- * User: Mr.Yangxiufeng
- * Date: 2019-07-25
- * Time: 16:38
- */
 @Component
 @Slf4j
 public class ProviderFacadeFallbackFactory implements FallbackFactory<ProviderFacade> {
