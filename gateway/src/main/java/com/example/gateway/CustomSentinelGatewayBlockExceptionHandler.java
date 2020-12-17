@@ -49,7 +49,7 @@ public class CustomSentinelGatewayBlockExceptionHandler extends SentinelGatewayB
     private Mono<Void> writeResponse(ServerResponse response, ServerWebExchange exchange) {
         ServerHttpResponse resp = exchange.getResponse();
         resp.getHeaders().add("Content-Type", "application/json;charset=UTF-8");
-        String json = "{\"code\": 429, \"msg\": \"系统繁忙，请稍后再试\"}";
+        String json = "{\"code\": 429, \"msg\": \"系统繁忙，请稍后再试(网关限流)\"}";
         DataBuffer buffer = resp.bufferFactory().wrap(json.getBytes(StandardCharsets.UTF_8));
         return resp.writeWith(Mono.just(buffer));
     }
