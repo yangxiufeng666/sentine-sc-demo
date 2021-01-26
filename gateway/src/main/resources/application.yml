@@ -26,13 +26,17 @@ spring:
           predicates:
             - Path=/sentinel-provider/**
           filters:
-            - StripPrefix=1
+            - name: StripPrefix
+              args:
+                parts: 1
         - id: consumer
           uri: lb://sentinel-consumer
           predicates:
             - Path=/sentinel-consumer/**
           filters:
-            - StripPrefix=1
+            - name: StripPrefix
+              args:
+                parts: 1
     sentinel:
       scg:
         order: -100

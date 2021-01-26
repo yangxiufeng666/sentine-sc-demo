@@ -26,3 +26,5 @@ spring:
             data-id: sentinel-provider-flow-rules
             ###  读取培训文件类型为json
             data-type: json
+            username: nacos
+            password: nacos
