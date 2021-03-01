@@ -49,22 +49,22 @@ public class GatewayConfiguration {
         return new CustomSentinelGatewayBlockExceptionHandler(viewResolvers, serverCodecConfigurer);
     }
 
-    @PostConstruct
-    public void doInit() {
-        initCustomizedApis();
-        initGatewayRules();
-    }
+//    @PostConstruct
+//    public void doInit() {
+//        initCustomizedApis();
+//        initGatewayRules();
+//    }
     /**
      * 配置限流规则
      */
     private void initGatewayRules() {
-        Set<GatewayFlowRule> rules = new HashSet<>();
-        //即路由ID
-        rules.add(new GatewayFlowRule("provider")
-                .setCount(1) // 限流阈值
-                .setIntervalSec(1) // 统计时间窗口，单位是秒，默认是 1 秒
-        );
-        GatewayRuleManager.loadRules(rules);
+//        Set<GatewayFlowRule> rules = new HashSet<>();
+//        //即路由ID
+//        rules.add(new GatewayFlowRule("provider")
+//                .setCount(1) // 限流阈值
+//                .setIntervalSec(1) // 统计时间窗口，单位是秒，默认是 1 秒
+//        );
+//        GatewayRuleManager.loadRules(rules);
     }
     private void initCustomizedApis() {
         Set<ApiDefinition> definitions = new HashSet<>();

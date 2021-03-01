@@ -21,8 +21,8 @@ management:
     web:
       exposure:
         include: '*'
-#ribbon:
-#  ReadTimeout: 5000
-#  ConnectTimeout: 3000
-#  MaxAutoRetries: 0
-#  MaxAutoRetriesNextServer: 1
+ribbon:
+  ReadTimeout: 5000
+  ConnectTimeout: 3000
+  MaxAutoRetries: 0
+  MaxAutoRetriesNextServer: 1

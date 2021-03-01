@@ -15,16 +15,11 @@ spring:
         locator:
           lower-case-service-id: true
           enabled: false
-      default-filters:
-        - name: Hystrix
-          args:
-            name: fallbackcmd
-            fallbackUri: forward:/fallback
       routes:
         - id: provider
           uri: lb://sentinel-provider
           predicates:
-            - Path=/sentinel-provider/**
+            - Path=/provider/**
           filters:
             - name: StripPrefix
               args:
@@ -32,33 +27,34 @@ spring:
         - id: consumer
           uri: lb://sentinel-consumer
           predicates:
-            - Path=/sentinel-consumer/**
+            - Path=/consumer/**
           filters:
             - name: StripPrefix
               args:
                 parts: 1
     sentinel:
-      scg:
-        order: -100
-        fallback:
-          mode: response
-          response-status: 455
-          response-body: 系统繁忙
       transport:
         dashboard: 127.0.0.1:8080
-#  main:
-#    allow-bean-definition-overriding: true
-hystrix:
-  command:
-    default:
-      execution:
-        timeout:
-          enable: true
-        isolation:
-          thread:
-            timeoutInMilliseconds: 10000
+      datasource:
+        flow:
+          nacos:
+            ### nacos连接地址
+            server-addr: 127.0.0.1:8848
+            ## nacos连接的分组
+            group-id: SENTINEL_GROUP
+            ###路由存储规则
+            rule-type: flow
+            ### 读取配置文件的 data-id
+            data-id: gateway-flow-rules
+            ###  读取培训文件类型为json
+            data-type: json
+            username: nacos
+            password: nacos
 ribbon:
   ReadTimeout: 5000
   ConnectTimeout: 3000
   MaxAutoRetries: 0
   MaxAutoRetriesNextServer: 1
+feign:
+  sentinel:
+    enabled: true
